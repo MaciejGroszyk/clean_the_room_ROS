@@ -70,7 +70,6 @@ int generateGoalList(float x_start, float x_end, float y_start, float y_end)
 //wysylanie nowego celu
 void sendNewGoal()
 {
-  //jak zrobic ac globalne, zeby nie powtarzac ??
   MoveBaseClient ac("move_base", true);
   while(!ac.waitForServer(ros::Duration(5.0))){
     ROS_INFO("Waiting for the move_base action server to come up");
