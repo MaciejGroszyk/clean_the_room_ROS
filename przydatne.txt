@@ -1,0 +1,26 @@
+cd IMA_22L_LAB6/ && source devel/setup.bash
+export TURTLEBOT3_MODEL=waffle_pi
+
+%odpalenia symulatora
+roslaunch turtlebot3_gazebo turtlebot3_house.launch
+
+%system nawigacji
+roslaunch turtlebot3_navigation turtlebot3_navigation.launch map_file:=/home/maciej/IMA_22L_LAB6/src/package_groszyk_zembron/map/house.yaml
+
+%moja paczka
+rosrun package_groszyk_zembron clean_the_room "lazienka"
+
+rosrun dynamic_reconfigure dynparam set /move_base/DWAPlannerROS yaw_goal_tolerance 6.30
+
+
+
+%odpalenie MG
+1)
+cd ws_ima/
+source ~/IMA_22L_LAB6/devel/setup.bash
+source venv/bin/activate
+roslaunch ima_perception ima_perception.launch
+
+2)
+cd IMA_22L_LAB6/ && source devel/setup.bash
+
